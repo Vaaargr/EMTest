@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EMTest</string>
+    <string name="chosen">Избранное</string>
+    <string name="message">Сообщения</string>
+    <string name="profile">Профиль</string>
+    <string name="response">Отклики</string>
+    <string name="search">Поиск</string>
+</resources>

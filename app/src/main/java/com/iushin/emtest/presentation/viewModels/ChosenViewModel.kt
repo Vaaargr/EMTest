@@ -1,4 +1,4 @@
-package com.iushin.emtest
+package com.iushin.emtest.presentation.viewModels
 
 import androidx.lifecycle.ViewModel
 
