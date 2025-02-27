@@ -1,30 +1,29 @@
 package com.iushin.emtest
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.iushin.emtest.databinding.FragmentChosenBinding
 
 class ChosenFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = ChosenFragment()
-    }
+    private var _binding: FragmentChosenBinding? = null
+    private val binding get() = _binding!!
 
     private val viewModel: ChosenViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_chosen, container, false)
+        _binding = FragmentChosenBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
