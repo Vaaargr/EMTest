@@ -5,4 +5,9 @@
     <string name="profile">Profile</string>
     <string name="response">Response</string>
     <string name="search">Search</string>
+    <string name="hint_search">Position, keywords</string>
+    <string name="hint_vacancies">Position for suitable vacancies</string>
+    <string name="vacancies">145 vacancies</string>
+    <string name="by_compliance">By compliance</string>
+    <string name="jobs_for_you">Jobs for you</string>
 </resources>

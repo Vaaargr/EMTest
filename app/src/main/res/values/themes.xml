@@ -1,9 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.EMTest" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+    <attr name="background_main_color"/>
+    <attr name="background_main_button"/>
+    <attr name="background_views_color"/>
+    <attr name="background_others_color"/>
+    <attr name="inactive_color"/>
+    <attr name="active_color"/>
+    <attr name="hint_color"/>
+    <attr name="main_text_color"/>
+    <attr name="link_text_color"/>
 
-    <style name="Theme.EMTest" parent="Base.Theme.EMTest" />
+    <style name="Base.Theme.EMTest" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="background_main_color">@color/black</item>
+        <item name="background_main_button">@color/blue</item>
+        <item name="background_views_color">@color/another_grey</item>
+        <item name="background_others_color">@color/dark_grey</item>
+        <item name="inactive_color">@color/grey</item>
+        <item name="active_color">@color/blue</item>
+        <item name="hint_color">@color/grey</item>
+        <item name="main_text_color">@color/white</item>
+        <item name="link_text_color">@color/blue</item>
+    </style>
 </resources>

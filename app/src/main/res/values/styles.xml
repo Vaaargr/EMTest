@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BottomNavStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="android:background">?attr/background_main_color</item>
+        <item name="itemTextColor">@drawable/nav_item_color</item>
+        <item name="itemIconTint">@drawable/nav_item_color</item>
+        <item name="fontFamily">@font/sf_pro_display_font</item>
+        <item name="android:textSize">@dimen/text_10</item>
+    </style>
+
+    <style name="EditText">
+        <item name="fontFamily">@font/sf_pro_display_font</item>
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textColorHint">?attr/hint_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/background_edit_text</item>
+        <item name="android:enabled">false</item>
+        <item name="singleLine">true</item>
+    </style>
+    
+    <style name="SimpleText">
+        <item name="fontFamily">@font/sf_pro_display_font</item>
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textColor">?attr/main_text_color</item>
+    </style>
+
+    <style name="LinkText" parent="SimpleText">
+        <item name="android:textColor">?attr/link_text_color</item>
+    </style>
+
+    <style name="HeaderText" parent="SimpleText">
+        <item name="android:textSize">@dimen/text_20</item>
+    </style>
+
+    <style name="MainButton">
+        <item name="android:background">@drawable/background_main_button</item>
+        <item name="backgroundTint">?attr/background_main_button</item>
+        <item name="android:textColor">?attr/main_text_color</item>
+        <item name="android:textSize">@dimen/text_16</item>
+    </style>
+</resources>
