@@ -11,4 +11,29 @@
     <string name="vacancies">145 вакансий</string>
     <string name="by_compliance">По соответствию</string>
     <string name="jobs_for_you">Вакансии для вас</string>
+    <string name="raise_resume">Поднять резюме в поиске</string>
+    <string name="raise">Поднять</string>
+    <string name="currently_viewing">Сейчас просматривает 1 человек</string>
+    <string name="respond">Откликнуться</string>
+
+    <plurals name="looking_number">
+        <item quantity="one">Сейчас просматривает %1$d человек</item>
+        <item quantity="few">Сейчас просматривает %1$d человека</item>
+        <item quantity="many">Сейчас просматривает %1$d человек</item>
+        <item quantity="other">Сейчас просматривает %1$d человек</item>
+    </plurals>
+
+    <plurals name="vacancies">
+        <item quantity="one">Ещё %1$d вакансия</item>
+        <item quantity="few">Ещё %1$d вакансии</item>
+        <item quantity="many">Ещё %1$d вакансий</item>
+        <item quantity="other">Ещё %1$d вакансий</item>
+    </plurals>
+
+    <plurals name="vacancies_show">
+        <item quantity="one">%1$d вакансия</item>
+        <item quantity="few">%1$d вакансии</item>
+        <item quantity="many">%1$d вакансий</item>
+        <item quantity="other">%1$d вакансий</item>
+    </plurals>
 </resources>

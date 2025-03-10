@@ -108,9 +108,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_16"
         android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/start_line"
-        app:layout_constraintTop_toBottomOf="@id/vacancies_tw" />
+        app:layout_constraintTop_toBottomOf="@id/vacancies_tw"
+        tools:itemCount="3"
+        tools:listitem="@layout/offer_view" />
 
     <TextView
         android:id="@+id/header_tw"
@@ -142,10 +145,12 @@
         app:layout_constraintBottom_toTopOf="@+id/show_all_vacancies_bt"
         app:layout_constraintEnd_toStartOf="@+id/end_line"
         app:layout_constraintStart_toStartOf="@+id/start_line"
-        app:layout_constraintTop_toBottomOf="@+id/header_tw" />
+        app:layout_constraintTop_toBottomOf="@+id/header_tw"
+        tools:itemCount="3"
+        tools:listitem="@layout/vacancy_view" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/full_dhow_group"
+        android:id="@+id/full_show_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -155,7 +160,7 @@
         android:id="@+id/preview_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="search_et, offers_rv, header_tw, show_all_vacancies_bt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

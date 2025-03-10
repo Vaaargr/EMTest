@@ -29,6 +29,18 @@
         <item name="android:textColor">?attr/link_text_color</item>
     </style>
 
+    <style name="SpecialText" parent="SimpleText">
+        <item name="android:textColor">?attr/special_text_color</item>
+    </style>
+
+    <style name="TitleText" parent="SimpleText">
+        <item name="android:textSize">@dimen/text_16</item>
+    </style>
+
+    <style name="DimText" parent="SimpleText">
+        <item name="android:textColor">?attr/dim_text_color</item>
+    </style>
+
     <style name="HeaderText" parent="SimpleText">
         <item name="android:textSize">@dimen/text_20</item>
     </style>

@@ -8,6 +8,8 @@
     <attr name="hint_color"/>
     <attr name="main_text_color"/>
     <attr name="link_text_color"/>
+    <attr name="special_text_color"/>
+    <attr name="dim_text_color"/>
 
     <style name="Base.Theme.EMTest" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="background_main_color">@color/black</item>
@@ -19,5 +21,7 @@
         <item name="hint_color">@color/grey</item>
         <item name="main_text_color">@color/white</item>
         <item name="link_text_color">@color/blue</item>
+        <item name="special_text_color">@color/green</item>
+        <item name="dim_text_color">@color/light_grey</item>
     </style>
 </resources>

@@ -1,7 +1,10 @@
 package com.iushin.emtest.ui
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.iushin.emtest.R
@@ -21,6 +24,23 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         binding.bottomNavView.setupWithNavController(navController)
+
+        val prefs = this.getSharedPreferences("chosen_prefrences", Context.MODE_PRIVATE)
+        val count = prefs.getInt("COUNT", 0)
+        changeBubble(count)
+
+        val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+            changeBubble(prefs.getInt("COUNT", 0))
+        }
+        prefs.registerOnSharedPreferenceChangeListener(listener)
+    }
+
+    private fun changeBubble(count: Int) {
+        if (count < 1) {
+            binding.bubble.isVisible = false
+        } else {
+            binding.bubble.text = count.toString()
+        }
     }
 
     override fun onDestroy() {
