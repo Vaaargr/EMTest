@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_10">10sp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="text_20">20sp</dimen>
+
+    <dimen name="padding_4">4dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_21">21dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="margin_32">32dp</dimen>
+
+    <dimen name="gap_32">32dp</dimen>
+    <dimen name="gap_40">40dp</dimen>
+    <dimen name="gap_48">48dp</dimen>
+    <dimen name="gap_93">93dp</dimen>
+    <dimen name="gap_120">120dp</dimen>
+    <dimen name="gap_132">132dp</dimen>
+
+    <dimen name="background_corners_radius">8dp</dimen>
+    <dimen name="background_main_button_radius">8dp</dimen>
+    <dimen name="background_corners_radius_settings_button">10dp</dimen>
+</resources>

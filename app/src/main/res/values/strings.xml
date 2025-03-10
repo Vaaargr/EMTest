@@ -1,3 +1,60 @@
 <resources>
     <string name="app_name">EMTest</string>
+    <string name="chosen">Chosen</string>
+    <string name="message">Message</string>
+    <string name="profile">Profile</string>
+    <string name="response">Response</string>
+    <string name="search">Search</string>
+    <string name="hint_search">Position, keywords</string>
+    <string name="hint_vacancies">Position for suitable vacancies</string>
+    <string name="vacancies">145 vacancies</string>
+    <string name="by_compliance">By compliance</string>
+    <string name="jobs_for_you">Jobs for you</string>
+    <string name="raise_resume">Raise your resume in search</string>
+    <string name="raise">Raise</string>
+    <string name="currently_viewing">Currently viewing by 1 person</string>
+    <string name="vacancy_title" translatable="false">UI/UX Desinger</string>
+    <string name="salary" translatable="false">1500-2900 Br</string>
+    <string name="city" translatable="false">Минск</string>
+    <string name="company_name" translatable="false">Мобирикс</string>
+    <string name="experience" translatable="false">Опыт от 1 года до 3 лет</string>
+    <string name="published" translatable="false">Опубликованно 20 февраля</string>
+    <string name="respond">Respond</string>
+
+    <plurals name="looking_number">
+        <item quantity="one">Сейчас просматривает %1$d человек</item>
+        <item quantity="two">Сейчас просматривает %1$d человека</item>
+        <item quantity="few">Сейчас просматривает %1$d человека</item>
+        <item quantity="many">Сейчас просматривает %1$d человек</item>
+        <item quantity="other">Сейчас просматривает %1$d человек</item>
+    </plurals>
+
+    <plurals name="vacancies">
+        <item quantity="one">%1$d more vacancy</item>
+        <item quantity="few">%1$d more vacancies</item>
+        <item quantity="many">%1$d more vacancies</item>
+        <item quantity="other">%1$d more vacancies</item>
+    </plurals>
+
+    <plurals name="vacancies_show">
+        <item quantity="one">%1$d vacancy</item>
+        <item quantity="few">%1$d vacancies</item>
+        <item quantity="many">%1$d vacancies</item>
+        <item quantity="other">%1$d vacancies</item>
+    </plurals>
+    
+    <string-array name="months">
+        <item>января</item>
+        <item>февраля</item>
+        <item>марта</item>
+        <item>апреля</item>
+        <item>мая</item>
+        <item>июня</item>
+        <item>июля</item>
+        <item>августа</item>
+        <item>сентября</item>
+        <item>октября</item>
+        <item>ноября</item>
+        <item>декабря</item>
+    </string-array>
 </resources>

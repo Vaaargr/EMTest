@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -57,10 +58,25 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
 
-//Navigation
+    //Navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
     //Fragment
     implementation(libs.androidx.fragment.ktx)
+
+    // Koin
+    implementation(libs.koin.android)
+
+    // Gson
+    implementation(libs.gson)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Room
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
+    implementation(libs.room.ktx)
 }
