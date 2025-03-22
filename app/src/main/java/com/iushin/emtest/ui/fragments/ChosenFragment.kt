@@ -10,6 +10,7 @@ import com.iushin.domain.models.Vacancy
 import com.iushin.emtest.R
 import com.iushin.emtest.databinding.FragmentChosenBinding
 import com.iushin.emtest.presentation.viewModels.ChosenViewModel
+import com.iushin.emtest.ui.CounterChanger
 import com.iushin.emtest.ui.adapters.VacancyAdapter
 import com.iushin.emtest.ui.adapters.clickListeners.OnHeartVacancyClickListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -50,6 +51,10 @@ class ChosenFragment : Fragment(), OnHeartVacancyClickListener {
                 it.size,
                 it.size
             )
+        }
+
+        viewModel.observeCounter().observe(viewLifecycleOwner){
+            (activity as? CounterChanger)?.countChange(it)
         }
     }
 

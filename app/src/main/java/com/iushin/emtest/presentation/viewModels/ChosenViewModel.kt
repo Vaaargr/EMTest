@@ -4,13 +4,25 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.iushin.domain.api.ChosenFragmentInteractor
+import com.iushin.domain.api.FavoriteVacancyInteractor
+import com.iushin.domain.impl.GetFavoriteVacanciesUseCase
 import com.iushin.domain.models.Vacancy
 import kotlinx.coroutines.launch
 
-class ChosenViewModel(private val interactor: ChosenFragmentInteractor) : ViewModel() {
+class ChosenViewModel(
+    private val favoriteVacancyInteractor: FavoriteVacancyInteractor,
+    private val getFavoriteVacanciesUseCase: GetFavoriteVacanciesUseCase
+) : ViewModel() {
 
     private val vacanciesLiveData = MutableLiveData<List<Vacancy>>()
+
+    private val countLiveData = MutableLiveData<Int>()
+
+    fun observeCounter(): LiveData<Int> = countLiveData
+
+    private fun setCount(count: Int) {
+        countLiveData.postValue(count)
+    }
 
     fun observeVacancies(): LiveData<List<Vacancy>> = vacanciesLiveData
 
@@ -20,18 +32,20 @@ class ChosenViewModel(private val interactor: ChosenFragmentInteractor) : ViewMo
 
     fun getVacancies() {
         viewModelScope.launch {
-            setVacancies(interactor.getVacancies())
+            setVacancies(getFavoriteVacanciesUseCase.getVacancies())
         }
     }
 
     fun onHeartClicked(vacancy: Vacancy) {
-        vacanciesLiveData.value!!.find { it.id == vacancy.id }!!.isFavorite = vacancy.isFavorite
+        val vacancyNew = ArrayList(vacanciesLiveData.value!!)
+        vacancyNew.remove(vacancy)
+        setVacancies(vacancyNew)
 
         viewModelScope.launch {
             if (vacancy.isFavorite) {
-                interactor.addFavoriteVacancy(vacancy)
+                setCount(favoriteVacancyInteractor.addFavoriteVacancy(vacancy = vacancy))
             } else {
-                interactor.deleteFavoriteVacancy(vacancy.id)
+                setCount(favoriteVacancyInteractor.deleteFavoriteVacancy(vacancyId = vacancy.id))
             }
         }
     }

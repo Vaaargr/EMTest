@@ -10,7 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.iushin.emtest.R
 import com.iushin.emtest.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CounterChanger {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
 
@@ -24,21 +24,13 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         binding.bottomNavView.setupWithNavController(navController)
-
-        val prefs = this.getSharedPreferences("chosen_prefrences", Context.MODE_PRIVATE)
-        val count = prefs.getInt("COUNT", 0)
-        changeBubble(count)
-
-        val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
-            changeBubble(prefs.getInt("COUNT", 0))
-        }
-        prefs.registerOnSharedPreferenceChangeListener(listener)
     }
 
     private fun changeBubble(count: Int) {
         if (count < 1) {
             binding.bubble.isVisible = false
         } else {
+            binding.bubble.isVisible = true
             binding.bubble.text = count.toString()
         }
     }
@@ -46,5 +38,9 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun countChange(newCount: Int) {
+        changeBubble(newCount)
     }
 }

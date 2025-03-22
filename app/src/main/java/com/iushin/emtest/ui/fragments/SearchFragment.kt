@@ -15,6 +15,7 @@ import com.iushin.emtest.R
 import com.iushin.emtest.databinding.FragmentSearchBinding
 import com.iushin.emtest.presentation.state.ShowState
 import com.iushin.emtest.presentation.viewModels.SearchViewModel
+import com.iushin.emtest.ui.CounterChanger
 import com.iushin.emtest.ui.adapters.OfferAdapter
 import com.iushin.emtest.ui.adapters.VacancyAdapter
 import com.iushin.emtest.ui.adapters.clickListeners.OnHeartVacancyClickListener
@@ -81,6 +82,10 @@ class SearchFragment : Fragment(), OnOfferClickListener, OnHeartVacancyClickList
                     binding.showAllVacanciesBt.text = buttonText
                 }
             }
+        }
+
+        viewModel.observeCounter().observe(viewLifecycleOwner){
+            (activity as? CounterChanger)?.countChange(it)
         }
 
         binding.backButton.setOnClickListener {

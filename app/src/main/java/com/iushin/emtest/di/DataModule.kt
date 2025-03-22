@@ -3,7 +3,6 @@ package com.iushin.emtest.di
 import android.content.Context
 import androidx.room.Room
 import com.google.gson.Gson
-import com.iushin.data.ShPrefsController
 import com.iushin.data.database.AppDatabase
 import com.iushin.data.database.DatabaseMapper
 import com.iushin.data.network.NetworkClient
@@ -19,8 +18,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 val dataModule = module {
 
     single { androidContext().getSharedPreferences("chosen_prefrences", Context.MODE_PRIVATE) }
-
-    single { ShPrefsController(get()) }
 
     single<RetrofitMockApi> {
         Retrofit.Builder()

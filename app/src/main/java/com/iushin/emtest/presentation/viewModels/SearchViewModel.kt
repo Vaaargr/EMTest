@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.iushin.domain.api.FavoriteVacancyInteractor
 import com.iushin.domain.api.GetDateInteractor
-import com.iushin.domain.api.SearchFragmentDatabaseInteractor
+import com.iushin.domain.impl.CheckVacancyUseCase
 import com.iushin.domain.models.Response
 import com.iushin.domain.models.Vacancy
 import com.iushin.emtest.presentation.state.ShowState
@@ -13,15 +14,24 @@ import kotlinx.coroutines.launch
 
 class SearchViewModel(
     private val getDateInteractor: GetDateInteractor,
-    private val databaseInteractor: SearchFragmentDatabaseInteractor
+    private val favoriteVacancyInteractor: FavoriteVacancyInteractor,
+    private val checkVacancyUseCase: CheckVacancyUseCase
 ) : ViewModel() {
 
     private val responseLiveData = MutableLiveData<Response>()
 
+    private val countLiveData = MutableLiveData<Int>()
+
     fun observeResponse(): LiveData<Response> = responseLiveData
+
+    fun observeCounter(): LiveData<Int> = countLiveData
 
     private fun setResponse(response: Response) {
         responseLiveData.postValue(response)
+    }
+
+    private fun setCount(count: Int) {
+        countLiveData.postValue(count)
     }
 
     private val showStateLiveData = MutableLiveData<ShowState>()
@@ -49,16 +59,23 @@ class SearchViewModel(
 
             response.vacancies.forEach {
                 if (it.isFavorite) {
-                    if (!databaseInteractor.checkVacancy(it.id)) {
-                        databaseInteractor.addFavoriteVacancy(it)
+                    if (!checkVacancyUseCase.checkVacancy(it.id)) {
+                        favoriteVacancyInteractor.addFavoriteVacancy(it)
                     }
                 } else {
-                    if (databaseInteractor.checkVacancy(it.id)) {
+                    if (checkVacancyUseCase.checkVacancy(it.id)) {
                         it.isFavorite = true
                     }
                 }
             }
 
+            var count = 0
+
+            response.vacancies.forEach {
+                if (it.isFavorite) count++
+            }
+
+            setCount(count)
             setResponse(response)
         }
     }
@@ -77,9 +94,9 @@ class SearchViewModel(
 
         viewModelScope.launch {
             if (vacancy.isFavorite) {
-                databaseInteractor.addFavoriteVacancy(vacancy)
+                setCount(favoriteVacancyInteractor.addFavoriteVacancy(vacancy = vacancy))
             } else {
-                databaseInteractor.deleteFavoriteVacancy(vacancy.id)
+                setCount(favoriteVacancyInteractor.deleteFavoriteVacancy(vacancyId = vacancy.id))
             }
         }
     }
